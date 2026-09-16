@@ -309,6 +309,32 @@
                 </a>
             </div>
         </section>
+        <!-- Kontaktformular -->
+        <section id="kontakt" class="card">
+            <h2>✉️ Nachricht schreiben</h2>
+            <p>Habt ihr Fragen oder Interesse an einem Probetraining? Schickt uns direkt eine Nachricht:</p>
+            
+            <form action="mailto:ttv.oberwinter@web.de" method="post" enctype="text/plain" style="margin-top: 15px; display: flex; flex-direction: column; gap: 12px;">
+                <div>
+                    <label for="name" style="font-weight: bold; display: block; margin-bottom: 5px;">Euer Name:</label>
+                    <input type="text" id="name" name="Name" required placeholder="Vor- und Nachname" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                </div>
+
+                <div>
+                    <label for="email" style="font-weight: bold; display: block; margin-bottom: 5px;">Eure E-Mail-Adresse:</label>
+                    <input type="email" id="email" name="Absender-Email" required placeholder="beispiel@web.de" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                </div>
+
+                <div>
+                    <label for="nachricht" style="font-weight: bold; display: block; margin-bottom: 5px;">Nachricht:</label>
+                    <textarea id="nachricht" name="Nachricht" rows="5" required placeholder="Eure Nachricht an uns..." style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                </div>
+
+                <button type="submit" class="social-button" style="background-color: var(--primary-color); border: none; cursor: pointer; font-size: 1rem; align-self: flex-start;">
+                    ✉️ Nachricht absenden
+                </button>
+            </form>
+        </section>
 
         <!-- Rechtliches (Ausklappbar) -->
         <section id="rechtliches" class="card">
