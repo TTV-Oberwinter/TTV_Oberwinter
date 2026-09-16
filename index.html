@@ -3,52 +3,472 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vereinsname e.V.</title>
+    <title>TTV Oberwinter e.V.</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
-        header { background: #004080; color: white; text-align: center; padding: 2rem; }
-        nav { background: #002b55; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .container { max-width: 800px; margin: 20px auto; background: white; padding: 20px; border-radius: 8px; }
-        footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #666; }
+        :root {
+            --primary-color: #a81c1c;
+            --primary-dark: #7a1212;
+            --accent-color: #d93838;
+            --bg-color: #fcf8f8;
+            --card-bg: #ffffff;
+            --text-color: #2b2b2b;
+            --border-color: #e2cece;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: var(--primary-dark);
+            padding: 12px 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #ffcccc;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(168, 28, 28, 0.08);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .team-box {
+            background: #fff5f5;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .team-box h3 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        .team-list {
+            list-style: none;
+        }
+
+        .team-list li {
+            margin-bottom: 8px;
+        }
+
+        .team-list a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .team-list a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .social-button:hover {
+            opacity: 0.9;
+        }
+
+        .facebook {
+            background-color: #1877f2;
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        /* Ausklappbare rechtliche Hinweise (Details & Summary) */
+        details {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px 15px;
+            margin-top: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            color: var(--primary-dark);
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+        }
+
+        summary:hover {
+            color: var(--accent-color);
+        }
+
+        details[open] summary {
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            background-color: var(--primary-dark);
+            color: #ffcccc;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Willkommen beim Musterverein e.V.</h1>
-        <p>Gemeinsam aktiv seit 2024</p>
+        <h1>TTV Oberwinter e.V.</h1>
+        <p>Willkommen auf unserer offiziellen Vereinsseite</p>
     </header>
 
     <nav>
         <a href="#ueber-uns">Über uns</a>
-        <a href="#zeiten">Zeiten & Treffs</a>
-        <a href="#impressum">Impressum</a>
+        <a href="#spielplaene">Spielpläne</a>
+        <a href="#social">Social Media</a>
+        <a href="#rechtliches">Rechtliches</a>
     </nav>
 
     <div class="container">
-        <section id="ueber-uns">
+        <!-- Über uns -->
+        <section id="ueber-uns" class="card">
             <h2>Über unseren Verein</h2>
-            <p>Hier steht eine kurze Beschreibung eures Vereins, eurer Ziele und was ihr macht.</p>
+            <p>Hier findet ihr alle aktuellen Informationen, Spielpläne und Kontaktdaten unseres Vereins. Wir freuen uns über jedes neue Mitglied!</p>
         </section>
 
-        <section id="zeiten">
-            <h2>Trainings- / Treffzeiten</h2>
-            <p><strong>Jeden Dienstag:</strong> 18:00 – 20:00 Uhr in der Vereinsallee 1.</p>
+        <!-- Spielpläne der Mannschaften -->
+        <section id="spielplaene" class="card">
+            <h2>Spielpläne & Ergebnisse</h2>
+            <p>Wählt eine Mannschaft aus, um zum offiziellen Spielplan zu gelangen:</p>
+            
+            <div class="teams-grid">
+                <!-- Damen -->
+                <div class="team-box">
+                    <h3>Damen</h3>
+                    <ul class="team-list">
+                        <li><a href="https://www.mytischtennis.de/click-tt/RTTVR/26--27/ligen/Damen_Verbandsliga_Rheinland/gruppe/518265/mannschaft/3154269/Damen/spielerbilanzen/gesamt" target="_blank">➔ 1. Damenmannschaft Verbandsliga</a></li>
+                    </ul>
+                </div>
+
+                <!-- Herren / Erwachsene -->
+                <div class="team-box">
+                    <h3>Erwachsene</h3>
+                    <ul class="team-list">
+                        <li><a href="https://www.mytischtennis.de/click-tt/RTTVR/26--27/ligen/Kreisoberliga/gruppe/518430/mannschaft/3081266/Erwachsene/spielerbilanzen/gesamt" target="_blank">➔ 1. Mannschaft Kreisoberliga</a></li>
+                        <li><a href="https://www.mytischtennis.de/click-tt/RTTVR/26--27/ligen/Kreisliga_Gruppe_A/gruppe/518300/mannschaft/3081479/Erwachsene_II/spielerbilanzen/gesamt" target="_blank">➔ 2. Mannschaft Kreisliga</a></li>
+                        <li><a href="https://www.mytischtennis.de/click-tt/RTTVR/26--27/ligen/1._Kreisklasse_Gruppe_A/gruppe/518389/mannschaft/3082386/Erwachsene_III/spielerbilanzen/gesamt" target="_blank">➔ 3. Mannschaft 1. Kreisklasse</a></li>
+                        <li><a href="https://www.mytischtennis.de/click-tt/RTTVR/26--27/ligen/3._Kreisklasse_Gruppe_A/gruppe/518464/mannschaft/3081934/Erwachsene_IV/spielerbilanzen/gesamt" target="_blank">➔ 4. Mannschaft 3. Kreisklasse</a></li>
+                        <li><a href="https://www.mytischtennis.de/click-tt/RTTVR/26--27/ligen/4._Kreisklasse_Gruppe_A/gruppe/518349/mannschaft/3082144/Erwachsene_V/spielerbilanzen/gesamt" target="_blank">➔ 5. Mannschaft 4. Kreisklasse</a></li>
+                        <li><a href="https://www.mytischtennis.de/click-tt/RTTVR/26--27/ligen/4._Kreisklasse_Gruppe_B/gruppe/518317/mannschaft/3142410/Erwachsene_VI/spielerbilanzen/gesamt" target="_blank">➔ 6. Mannschaft 4. Kreisklasse</a></li>
+                    </ul>
+                </div>
+
+                <!-- Jugend -->
+                <div class="team-box">
+                    <h3>Jugend</h3>
+                    <ul class="team-list">
+                        <li><a href="https://www.mytischtennis.de/click-tt/RTTVR/26--27/ligen/Jugend_19_Bezirksliga_Rheinland_Nord_(HR)/gruppe/518361/mannschaft/3142409/Jugend_19/spielerbilanzen/gesamt" target="_blank">➔ Jugend 1 Bezirksliga</a></li>
+                        <li><a href="https://www.mytischtennis.de/click-tt/RTTVR/26--27/ligen/Jugend_19_1._Kreisklasse_(HR)/gruppe/518302/mannschaft/3142411/Jugend_19_II/spielerbilanzen/gesamt" target="_blank">➔ Jugend 2 1. Kreisklasse</a></li>
+                        <li><a href="https://www.mytischtennis.de/click-tt/RTTVR/26--27/ligen/Jugend_19_3._Kreisklasse_(HR)/gruppe/518424/mannschaft/3142412/Jugend_19_III/spielerbilanzen/gesamt" target="_blank">➔ Jugend 3 3. Kreisklasse</a></li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
-        <section id="impressum">
-            <h2>Impressum</h2>
-            <p><strong>Musterverein e.V.</strong><br>
-            Musterstraße 12, 12345 Musterstadt<br>
-            Vertreten durch: Max Mustermann (1. Vorstand)<br>
-            Vereinsregister: VR 12345 (Amtsgericht Musterstadt)<br>
-            E-Mail: kontakt@musterverein.de</p>
+        <!-- Social Media -->
+        <section id="social" class="card">
+            <h2>Social Media</h2>
+            <p>Folgt uns auf unseren Kanälen für aktuelle News, Fotos und Spielberichte:</p>
+            <div class="social-links">
+                <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.facebook.com/p/TTV-Oberwinter-100057237677857/%3Flocale%3Dde_DE&ved=2ahUKEwiL9ZutufOWAxUTAtsEHZ3oMFYQFnoECB4QAQ&usg=AOvVaw0T-Ft42Zwu_BOsnDgpUSxh" target="_blank" class="social-button facebook">
+                    Facebook Profil
+                </a>
+                <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/ttv_oberwinter/&ved=2ahUKEwiL9ZutufOWAxUTAtsEHZ3oMFYQFnoECCIQAQ&usg=AOvVaw0Ca5cqkbewo60uN55FFSl4" target="_blank" class="social-button instagram">
+                    Instagram Profil
+                </a>
+            </div>
+        </section>
+
+        <!-- Rechtliches (Ausklappbar) -->
+        <section id="rechtliches" class="card">
+            <h2>Rechtliches & Datenschutz</h2>
+            <p>Klickt auf die Überschriften, um die Inhalte anzuzeigen:</p>
+
+        <details>
+                <summary>Impressum anzeigen</summary>
+                <div style="margin-top: 10px;">
+                    <h3>Impressum</h3>
+                    <p><strong>Angaben gemäß § 5 TMG</strong></p>
+                    <p>TTV Oberwinter e.V. gegr. 1969<br>
+                    Mainzer Straße 89<br>
+                    53424 Remagen</p>
+                    <br>
+                    <p><strong>Vertreten durch:</strong><br>
+                    Uwe Wein, 1. Vorsitzender<br>
+                    Benno Balasus, 1. Kassierer</p>
+                    <br>
+                    <p><strong>Kontakt:</strong><br>
+                    E-Mail: <a href="mailto:ttv.oberwinter@web.de" style="color: var(--primary-color);">ttv.oberwinter@web.de</a></p>
+                    <br>
+                    <p><strong>Registereintrag:</strong><br>
+                    Eintragung im Vereinsregister.<br>
+                    Registergericht: Amtsgericht Koblenz<br>
+                    Registernummer: 11204</p>
+                    <br>
+                    <p><strong>Haftungsausschluss:</strong></p>
+                    <p><strong>Haftung für Inhalte</strong><br>
+                    Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+                    <p style="margin-top: 5px;">Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+                    <br>
+                    <p><strong>Urheberrecht</strong><br>
+                    Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+                    <p style="margin-top: 5px;">Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+                </div>
+            </details>
+
+          <details>
+                <summary>Datenschutzerklärung anzeigen</summary>
+                <div class="privacy-content" style="margin-top: 10px;">
+                    <h3>Datenschutzerklärung</h3>
+                    
+                    <h4>Präambel</h4>
+                    <p>Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als "Daten“ bezeichnet) wir zu welchen Zwecken und in welchem Umfang verarbeiten. Die Datenschutzerklärung gilt für alle von uns durchgeführten Verarbeitungen personenbezogener Daten, sowohl im Rahmen der Erbringung unserer Leistungen als auch insbesondere auf unseren Webseiten, in mobilen Applikationen sowie innerhalb externer Onlinepräsenzen, wie z.B. unserer Social-Media-Profile (nachfolgend zusammenfassend bezeichnet als "Onlineangebot“).</p>
+                    <p>Die verwendeten Begriffe sind nicht geschlechtsspezifisch.</p>
+                    <p><strong>Stand: 19. Juli 2023</strong></p>
+
+                    <h4>Inhaltsübersicht</h4>
+                    <ul>
+                        <li>Präambel</li>
+                        <li>Verantwortlicher</li>
+                        <li>Übersicht der Verarbeitungen</li>
+                        <li>Maßgebliche Rechtsgrundlagen</li>
+                        <li>Sicherheitsmaßnahmen</li>
+                        <li>Übermittlung von personenbezogenen Daten</li>
+                        <li>Löschung von Daten</li>
+                        <li>Rechte der betroffenen Personen</li>
+                        <li>Einsatz von Cookies</li>
+                        <li>Wahrnehmung von Aufgaben nach Satzung oder Geschäftsordnung</li>
+                        <li>Präsenzen in sozialen Netzwerken (Social Media)</li>
+                        <li>Änderung und Aktualisierung der Datenschutzerklärung</li>
+                        <li>Begriffsdefinitionen</li>
+                    </ul>
+
+                    <h4>Verantwortlicher</h4>
+                    <p>Benno Balasus<br>
+                    <strong>Vertretungsberechtigte Personen:</strong> Uwe Wein, Benno Balasus<br>
+                    <strong>E-Mail-Adresse:</strong> <a href="mailto:ttv.oberwinter@web.de" style="color: var(--primary-color);">ttv.oberwinter@web.de</a><br>
+                    <strong>Impressum:</strong> <a href="https://www.ttv-oberwinter.de/impressum" target="_blank" style="color: var(--primary-color);">https://www.ttv-oberwinter.de/impressum</a></p>
+
+                    <h4>Maßgebliche Rechtsgrundlagen</h4>
+                    <p><strong>Maßgebliche Rechtsgrundlagen nach der DSGVO:</strong> Im Folgenden erhalten Sie eine Übersicht der Rechtsgrundlagen der DSGVO, auf deren Basis wir personenbezogene Daten verarbeiten. Bitte nehmen Sie zur Kenntnis, dass neben den Regelungen der DSGVO nationale Datenschutzvorgaben in Ihrem bzw. unserem Wohn- oder Sitzland gelten können. Sollten ferner im Einzelfall speziellere Rechtsgrundlagen maßgeblich sein, teilen wir Ihnen diese in der Datenschutzerklärung mit.</p>
+                    <ul>
+                        <li><strong>Einwilligung (Art. 6 Abs. 1 S. 1 lit. a) DSGVO):</strong> Die betroffene Person hat ihre Einwilligung in die Verarbeitung der sie betreffenden personenbezogenen Daten für einen spezifischen Zweck oder mehrere bestimmte Zwecke gegeben.</li>
+                        <li><strong>Vertragserfüllung und vorvertragliche Anfragen (Art. 6 Abs. 1 S. 1 lit. b) DSGVO):</strong> Die Verarbeitung ist für die Erfüllung eines Vertrags, dessen Vertragspartei die betroffene Person ist, oder zur Durchführung vorvertraglicher Maßnahmen erforderlich, die auf Anfrage der betroffenen Person erfolgen.</li>
+                        <li><strong>Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO):</strong> Die Verarbeitung ist zur Wahrung der berechtigten Interessen des Verantwortlichen oder eines Dritten erforderlich, sofern nicht die Interessen oder Grundrechte und Grundfreiheiten der betroffenen Person, die den Schutz personenbezogener Daten erfordern, überwiegen.</li>
+                    </ul>
+                    <p><strong>Nationale Datenschutzregelungen in Deutschland:</strong> Zusätzlich zu den Datenschutzregelungen der DSGVO gelten nationale Regelungen zum Datenschutz in Deutschland. Hierzu gehört insbesondere das Gesetz zum Schutz vor Missbrauch personenbezogener Daten bei der Datenverarbeitung (Bundesdatenschutzgesetz – BDSG). Das BDSG enthält insbesondere Spezialregelungen zum Recht auf Auskunft, zum Recht auf Löschung, zum Widerspruchsrecht, zur Verarbeitung besonderer Kategorien personenbezogener Daten, zur Verarbeitung für andere Zwecke und zur Übermittlung sowie automatisierten Entscheidungsfindung im Einzelfall einschließlich Profiling. Ferner können Landesdatenschutzgesetze der einzelnen Bundesländer zur Anwendung gelangen.</p>
+
+                    <h4>Übersicht der Verarbeitungen</h4>
+                    <p>Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer Verarbeitung zusammen und verweist auf die betroffenen Personen.</p>
+                    <p><strong>Arten der verarbeiteten Daten:</strong></p>
+                    <ul>
+                        <li>Bestandsdaten.</li>
+                        <li>Zahlungsdaten.</li>
+                        <li>Kontaktdaten.</li>
+                        <li>Inhaltsdaten.</li>
+                        <li>Vertragsdaten.</li>
+                        <li>Nutzungsdaten.</li>
+                        <li>Meta-, Kommunikations- und Verfahrensdaten.</li>
+                    </ul>
+                    <p><strong>Kategorien betroffener Personen:</strong></p>
+                    <ul>
+                        <li>Nutzer.</li>
+                        <li>Mitglieder.</li>
+                        <li>Geschäfts- und Vertragspartner.</li>
+                    </ul>
+                    <p><strong>Zwecke der Verarbeitung:</strong></p>
+                    <ul>
+                        <li>Erbringung vertraglicher Leistungen und Kundenservice.</li>
+                        <li>Kontaktanfragen und Kommunikation.</li>
+                        <li>Verwaltung und Beantwortung von Anfragen.</li>
+                        <li>Feedback.</li>
+                        <li>Marketing.</li>
+                    </ul>
+
+                    <h4>Sicherheitsmaßnahmen</h4>
+                    <p>Wir treffen nach Maßgabe der gesetzlichen Vorgaben unter Berücksichtigung des Stands der Technik, der Implementierungskosten und der Art, des Umfangs, der Umstände und der Zwecke der Verarbeitung sowie der unterschiedlichen Eintrittswahrscheinlichkeiten und des Ausmaßes der Bedrohung der Rechte und Freiheiten natürlicher Personen geeignete technische und organisatorische Maßnahmen, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten.</p>
+                    <p>Zu den Maßnahmen gehören insbesondere die Sicherung der Vertraulichkeit, Integrität und Verfügbarkeit von Daten durch Kontrolle des physischen und elektronischen Zugangs zu den Daten als auch des sie betreffenden Zugriffs, der Eingabe, der Weitergabe, der Sicherung der Verfügbarkeit und ihrer Trennung. Des Weiteren haben wir Verfahren eingerichteten, die eine Wahrnehmung von Betroffenenrechten, die Löschung von Daten und Reaktionen auf die Gefährdung der Daten gewährleisten. Ferner berücksichtigen wir den Schutz personenbezogener Daten bereits bei der Entwicklung bzw. Auswahl von Hardware, Software sowie Verfahren entsprechend dem Prinzip des Datenschutzes, durch Technikgestaltung und durch datenschutzfreundliche Voreinstellungen.</p>
+                    <p><strong>TLS-Verschlüsselung (https):</strong> Um Ihre via unserem Online-Angebot übermittelten Daten zu schützen, nutzen wir eine TLS-Verschlüsselung. Sie erkennen derart verschlüsselte Verbindungen an dem Präfix https:// in der Adresszeile Ihres Browsers.</p>
+
+                    <h4>Übermittlung von personenbezogenen Daten</h4>
+                    <p>Im Rahmen unserer Verarbeitung von personenbezogenen Daten kommt es vor, dass die Daten an andere Stellen, Unternehmen, rechtlich selbstständige Organisationseinheiten oder Personen übermittelt oder sie ihnen gegenüber offengelegt werden. Zu den Empfängern dieser Daten können z.B. mit IT-Aufgaben beauftragte Dienstleister oder Anbieter von Diensten und Inhalten, die in eine Webseite eingebunden werden, gehören. In solchen Fällen beachten wir die gesetzlichen Vorgaben und schließen insbesondere entsprechende Verträge bzw. Vereinbarungen, die dem Schutz Ihrer Daten dienen, mit den Empfängern Ihrer Daten ab.</p>
+
+                    <h4>Löschung von Daten</h4>
+                    <p>Die von uns verarbeiteten Daten werden nach Maßgabe der gesetzlichen Vorgaben gelöscht, sobald deren zur Verarbeitung erlaubten Einwilligungen widerrufen werden oder sonstige Erlaubnisse entfallen (z.B. wenn der Zweck der Verarbeitung dieser Daten entfallen ist oder sie für den Zweck nicht erforderlich sind). Sofern die Daten nicht gelöscht werden, weil sie für andere und gesetzlich zulässige Zwecke erforderlich sind, wird deren Verarbeitung auf diese Zwecke beschränkt. D.h., die Daten werden gesperrt und nicht für andere Zwecke verarbeitet. Das gilt z.B. für Daten, die aus handels- oder steuerrechtlichen Gründen aufbewahrt werden müssen oder deren Speicherung zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen oder juristischen Person erforderlich ist.</p>
+                    <p>Unsere Datenschutzhinweise können ferner weitere Angaben zu der Aufbewahrung und Löschung von Daten beinhalten, die für die jeweiligen Verarbeitungen vorrangig gelten.</p>
+
+                    <h4>Rechte der betroffenen Personen</h4>
+                    <p><strong>Rechte der betroffenen Personen aus der DSGVO:</strong> Ihnen stehen als Betroffene nach der DSGVO verschiedene Rechte zu, die sich insbesondere aus Art. 15 bis 21 DSGVO ergeben:</p>
+                    <ul>
+                        <li><strong>Widerspruchsrecht:</strong> Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten, die aufgrund von Art. 6 Abs. 1 lit. e oder f DSGVO erfolgt, Widerspruch einzulegen; dies gilt auch für ein auf diese Bestimmungen gestütztes Profiling. Werden die Sie betreffenden personenbezogenen Daten verarbeitet, um Direktwerbung zu betreiben, haben Sie das Recht, jederzeit Widerspruch gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten zum Zwecke derartiger Werbung einzulegen; dies gilt auch für das Profiling, soweit es mit solcher Direktwerbung in Verbindung steht.</li>
+                        <li><strong>Widerrufsrecht bei Einwilligungen:</strong> Sie haben das Recht, erteilte Einwilligungen jederzeit zu widerrufen.</li>
+                        <li><strong>Auskunftsrecht:</strong> Sie haben das Recht, eine Bestätigung darüber zu verlangen, ob betreffende Daten verarbeitet werden und auf Auskunft über diese Daten sowie auf weitere Informationen und Kopie der Daten entsprechend den gesetzlichen Vorgaben.</li>
+                        <li><strong>Recht auf Berichtigung:</strong> Sie haben entsprechend den gesetzlichen Vorgaben das Recht, die Vervollständigung der Sie betreffenden Daten oder die Berichtigung der Sie betreffenden unrichtigen Daten zu verlangen.</li>
+                        <li><strong>Recht auf Löschung und Einschränkung der Verarbeitung:</strong> Sie haben nach Maßgabe der gesetzlichen Vorgaben das Recht, zu verlangen, dass Sie betreffende Daten unverzüglich gelöscht werden, bzw. alternativ nach Maßgabe der gesetzlichen Vorgaben eine Einschränkung der Verarbeitung der Daten zu verlangen.</li>
+                        <li><strong>Recht auf Datenübertragbarkeit:</strong> Sie haben das Recht, Sie betreffende Daten, die Sie uns bereitgestellt haben, nach Maßgabe der gesetzlichen Vorgaben in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten oder deren Übermittlung an einen anderen Verantwortlichen zu fordern.</li>
+                        <li><strong>Beschwerde bei Aufsichtsbehörde:</strong> Sie haben unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs das Recht auf Beschwerde bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthaltsorts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes, wenn Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden personenbezogenen Daten gegen die Vorgaben der DSGVO verstößt.</li>
+                    </ul>
+
+                    <h4>Einsatz von Cookies</h4>
+                    <p>Cookies sind kleine Textdateien, bzw. sonstige Speichervermerke, die Informationen auf Endgeräten speichern und Informationen aus den Endgeräten auslesen. Z.B. um den Login-Status in einem Nutzerkonto, einen Warenkorbinhalt in einem E-Shop, die aufgerufenen Inhalte oder verwendete Funktionen eines Onlineangebotes speichern. Cookies können ferner zu unterschiedlichen Zwecken eingesetzt werden, z.B. zu Zwecken der Funktionsfähigkeit, Sicherheit und Komfort von Onlineangeboten sowie der Erstellung von Analysen der Besucherströme.</p>
+                    <p><strong>Hinweise zur Einwilligung:</strong> Wir setzen Cookies im Einklang mit den gesetzlichen Vorschriften ein. Daher holen wir von den Nutzern eine vorhergehende Einwilligung ein, außer wenn diese gesetzlich nicht gefordert ist. Eine Einwilligung ist insbesondere nicht notwendig, wenn das Speichern und das Auslesen der Informationen, also auch von Cookies, unbedingt erforderlich sind, um dem den Nutzern einen von ihnen ausdrücklich gewünschten Telemediendienst (also unser Onlineangebot) zur Verfügung zu stellen. Zu den unbedingt erforderlichen Cookies gehören in der Regel Cookies mit Funktionen, die der Anzeige und Lauffähigkeit des Onlineangebotes, dem Lastausgleich, der Sicherheit, der Speicherung der Präferenzen und Auswahlmöglichkeiten der Nutzer oder ähnlichen mit der Bereitstellung der Haupt- und Nebenfunktionen des von den Nutzern angeforderten Onlineangebotes zusammenhängenden Zwecken dienen. Die widerrufliche Einwilligung wird gegenüber den Nutzern deutlich kommuniziert und enthält die Informationen zu der jeweiligen Cookie-Nutzung.</p>
+                    <p><strong>Hinweise zu datenschutzrechtlichen Rechtsgrundlagen:</strong> Auf welcher datenschutzrechtlichen Rechtsgrundlage wir die personenbezogenen Daten der Nutzer mit Hilfe von Cookies verarbeiten, hängt davon ab, ob wir Nutzer um eine Einwilligung bitten. Falls die Nutzer einwilligen, ist die Rechtsgrundlage der Verarbeitung Ihrer Daten die erklärte Einwilligung. Andernfalls werden die mithilfe von Cookies verarbeiteten Daten auf Grundlage unserer berechtigten Interessen (z.B. an einem betriebswirtschaftlichen Betrieb unseres Onlineangebotes und Verbesserung seiner Nutzbarkeit) verarbeitet oder, wenn dies im Rahmen der Erfüllung unserer vertraglichen Pflichten erfolgt, wenn der Einsatz von Cookies erforderlich ist, um unsere vertraglichen Verpflichtungen zu erfüllen. Zu welchen Zwecken die Cookies von uns verarbeitet werden, darüber klären wir im Laufe dieser Datenschutzerklärung oder im Rahmen von unseren Einwilligungs- und Verarbeitungsprozessen auf.</p>
+                    <p><strong>Speicherdauer:</strong> Im Hinblick auf die Speicherdauer werden die folgenden Arten von Cookies unterschieden:</p>
+                    <ul>
+                        <li><strong>Temporäre Cookies (auch: Session- oder Sitzungs-Cookies):</strong> Temporäre Cookies werden spätestens gelöscht, nachdem ein Nutzer ein Online-Angebot verlassen und sein Endgerät (z.B. Browser oder mobile Applikation) geschlossen hat.</li>
+                        <li><strong>Permanente Cookies:</strong> Permanente Cookies bleiben auch nach dem Schließen des Endgerätes gespeichert. So können beispielsweise der Login-Status gespeichert oder bevorzugte Inhalte direkt angezeigt werden, wenn der Nutzer eine Website erneut besucht. Ebenso können die mit Hilfe von Cookies erhobenen Daten der Nutzer zur Reichweitenmessung verwendet werden. Sofern wir Nutzern keine expliziten Angaben zur Art und Speicherdauer von Cookies mitteilen (z. B. im Rahmen der Einholung der Einwilligung), sollten Nutzer davon ausgehen, dass Cookies permanent sind und die Speicherdauer bis zu zwei Jahre betragen kann.</li>
+                    </ul>
+                    <p><strong>Allgemeine Hinweise zum Widerruf und Widerspruch (sog. "Opt-Out"):</strong> Nutzer können die von ihnen abgegebenen Einwilligungen jederzeit widerrufen und der Verarbeitung entsprechend den gesetzlichen Vorgaben widersprechen. Hierzu können Nutzer unter anderem die Verwendung von Cookies in den Einstellungen ihres Browsers einschränken (wobei dadurch auch die Funktionalität unseres Onlineangebotes eingeschränkt sein kann). Ein Widerspruch gegen die Verwendung von Cookies zu Online-Marketing-Zwecken kann auch über die Websites <a href="https://optout.aboutads.info" target="_blank">https://optout.aboutads.info</a> und <a href="https://www.youronlinechoices.com/" target="_blank">https://www.youronlinechoices.com/</a> erklärt werden.</p>
+                    <p><strong>Rechtsgrundlagen:</strong> Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO); Einwilligung (Art. 6 Abs. 1 S. 1 lit. a) DSGVO).</p>
+                    <p><strong>Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten:</strong></p>
+                    <ul>
+                        <li><strong>Verarbeitung von Cookie-Daten auf Grundlage einer Einwilligung:</strong> Wir setzen ein Verfahren zum Cookie-Einwilligungs-Management ein, in dessen Rahmen die Einwilligungen der Nutzer in den Einsatz von Cookies, bzw. der im Rahmen des Cookie-Einwilligungs-Management-Verfahrens genannten Verarbeitungen und Anbieter eingeholt sowie von den Nutzern verwaltet und widerrufen werden können. Hierbei wird die Einwilligungserklärung gespeichert, um deren Abfrage nicht erneut wiederholen zu müssen und die Einwilligung entsprechend der gesetzlichen Verpflichtung nachweisen zu können. Die Speicherung kann serverseitig und/oder in einem Cookie (sogenanntes Opt-In-Cookie, bzw. mithilfe vergleichbarer Technologien) erfolgen, um die Einwilligung einem Nutzer, bzw. dessen Gerät zuordnen zu können. Vorbehaltlich individueller Angaben zu den Anbietern von Cookie-Management-Diensten, gelten die folgenden Hinweise: Die Dauer der Speicherung der Einwilligung kann bis zu zwei Jahren betragen. Hierbei wird ein pseudonymer Nutzer-Identifikator gebildet und mit dem Zeitpunkt der Einwilligung, Angaben zur Reichweite der Einwilligung (z. B. welche Kategorien von Cookies und/oder Diensteanbieter) sowie dem Browser, System und verwendeten Endgerät gespeichert; Rechtsgrundlagen: Einwilligung (Art. 6 Abs. 1 S. 1 lit. a) DSGVO).</li>
+                    </ul>
+
+                    <h4>Wahrnehmung von Aufgaben nach Satzung oder Geschäftsordnung</h4>
+                    <p>Wir verarbeiten die Daten unserer Mitglieder, Unterstützer, Interessenten, Geschäftspartner oder sonstiger Personen (Zusammenfassend "Betroffene"), wenn wir mit ihnen in einem Mitgliedschafts- oder sonstigem geschäftlichen Verhältnis stehen und unsere Aufgaben wahrnehmen sowie Empfänger von Leistungen und Zuwendungen sind. Im Übrigen verarbeiten wir die Daten Betroffener auf Grundlage unserer berechtigten Interessen, z.B. wenn es sich um administrative Aufgaben oder Öffentlichkeitsarbeit handelt.</p>
+                    <p>Die hierbei verarbeiteten Daten, die Art, der Umfang und der Zweck und die Erforderlichkeit ihrer Verarbeitung, bestimmen sich nach dem zugrundeliegenden Mitgliedschafts- oder Vertragsverhältnis, aus dem sich auch die Erforderlichkeit etwaiger Datenangaben ergeben (im Übrigen weisen wir auf erforderliche Daten hin).</p>
+                    <p>Wir löschen Daten, die zur Erbringung unserer satzungs- und geschäftsmäßigen Zwecke nicht mehr erforderlich sind. Dies bestimmt sich entsprechend der jeweiligen Aufgaben und vertraglichen Beziehungen. Wir bewahren die Daten so lange auf, wie sie zur Geschäftsabwicklung, als auch im Hinblick auf etwaige Gewährleistungs- oder Haftungspflichten auf Grundlage unserer berechtigten Interesse an deren Regelung relevant sein können. Die Erforderlichkeit der Aufbewahrung der Daten wird regelmäßig überprüft; im Übrigen gelten die gesetzlichen Aufbewahrungspflichten.</p>
+                    <ul>
+                        <li><strong>Verarbeitete Datenarten:</strong> Bestandsdaten (z.B. Namen, Adressen); Zahlungsdaten (z.B. Bankverbindungen, Rechnungen, Zahlungshistorie); Kontaktdaten (z.B. E-Mail, Telefonnummern); Vertragsdaten (z.B. Vertragsgegenstand, Laufzeit, Kundenkategorie).</li>
+                        <li><strong>Betroffene Personen:</strong> Nutzer (z.B. Webseitenbesucher, Nutzer von Onlinediensten); Mitglieder; Geschäfts- und Vertragspartner.</li>
+                        <li><strong>Zwecke der Verarbeitung:</strong> Erbringung vertraglicher Leistungen und Kundenservice; Kontaktanfragen und Kommunikation; Verwaltung und Beantwortung von Anfragen.</li>
+                        <li><strong>Rechtsgrundlagen:</strong> Vertragserfüllung und vorvertragliche Anfragen (Art. 6 Abs. 1 S. 1 lit. b) DSGVO); Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO).</li>
+                    </ul>
+
+                    <h4>Präsenzen in sozialen Netzwerken (Social Media)</h4>
+                    <p>Wir unterhalten Onlinepräsenzen innerhalb sozialer Netzwerke und verarbeiten in diesem Rahmen Daten der Nutzer, um mit den dort aktiven Nutzern zu kommunizieren oder um Informationen über uns anzubieten.</p>
+                    <p>Wir weisen darauf hin, dass dabei Daten der Nutzer außerhalb des Raumes der Europäischen Union verarbeitet werden können. Hierdurch können sich für die Nutzer Risiken ergeben, weil so z.B. die Durchsetzung der Rechte der Nutzer erschwert werden könnte.</p>
+                    <p>Ferner werden die Daten der Nutzer innerhalb sozialer Netzwerke im Regelfall für Marktforschungs- und Werbezwecke verarbeitet. So können z.B. anhand des Nutzungsverhaltens und sich daraus ergebender Interessen der Nutzer Nutzungsprofile erstellt werden. Die Nutzungsprofile können wiederum verwendet werden, um z.B. Werbeanzeigen innerhalb und außerhalb der Netzwerke zu schalten, die mutmaßlich den Interessen der Nutzer entsprechen. Zu diesen Zwecken werden im Regelfall Cookies auf den Rechnern der Nutzer gespeichert, in denen das Nutzungsverhalten und die Interessen der Nutzer gespeichert werden. Ferner können in den Nutzungsprofilen auch Daten unabhängig der von den Nutzern verwendeten Geräte gespeichert werden (insbesondere, wenn die Nutzer Mitglieder der jeweiligen Plattformen sind und bei diesen eingeloggt sind).</p>
+                    <p>Für eine detaillierte Darstellung der jeweiligen Verarbeitungsformen und der Widerspruchsmöglichkeiten (Opt-Out) verweisen wir auf die Datenschutzerklärungen und Angaben der Betreiber der jeweiligen Netzwerke.</p>
+                    <p>Auch im Fall von Auskunftsanfragen und der Geltendmachung von Betroffenenrechten weisen wir darauf hin, dass diese am effektivsten bei den Anbietern geltend gemacht werden können. Nur die Anbieter haben jeweils Zugriff auf die Daten der Nutzer und können direkt entsprechende Maßnahmen ergreifen und Auskünfte geben. Sollten Sie dennoch Hilfe benötigen, dann können Sie sich an uns wenden.</p>
+                    <ul>
+                        <li><strong>Verarbeitete Datenarten:</strong> Kontaktdaten (z.B. E-Mail, Telefonnummern); Inhaltsdaten (z.B. Eingaben in Onlineformularen); Nutzungsdaten (z.B. besuchte Webseiten, Interesse an Inhalten, Zugriffszeiten); Meta-, Kommunikations- und Verfahrensdaten (z. B. IP-Adressen, Zeitangaben, Identifikationsnummern, Einwilligungsstatus).</li>
+                        <li><strong>Betroffene Personen:</strong> Nutzer (z.B. Webseitenbesucher, Nutzer von Onlinediensten).</li>
+                        <li><strong>Zwecke der Verarbeitung:</strong> Kontaktanfragen und Kommunikation; Feedback (z.B. Sammeln von Feedback via Online-Formular); Marketing.</li>
+                        <li><strong>Rechtsgrundlagen:</strong> Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO).</li>
+                    </ul>
+                    <p><strong>Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten:</strong></p>
+                    <ul>
+                        <li><strong>Instagram:</strong> Soziales Netzwerk; Dienstanbieter: Meta Platforms Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland; Rechtsgrundlagen: Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO); Website: <a href="https://www.instagram.com" target="_blank">https://www.instagram.com</a>; Datenschutzerklärung: <a href="https://instagram.com/about/legal/privacy" target="_blank">https://instagram.com/about/legal/privacy</a>.</li>
+                        <li><strong>Facebook-Seiten:</strong> Profile innerhalb des sozialen Netzwerks Facebook - Wir sind gemeinsam mit Meta Platforms Ireland Limited für die Erhebung (jedoch nicht die weitere Verarbeitung) von Daten der Besucher unserer Facebook-Seite (sog. "Fanpage") verantwortlich. Zu diesen Daten gehören Informationen zu den Arten von Inhalten, die Nutzer sich ansehen oder mit denen sie interagieren, oder die von ihnen vorgenommenen Handlungen (siehe unter „Von dir und anderen getätigte und bereitgestellte Dinge“ in der Facebook-Datenrichtlinie: <a href="https://www.facebook.com/policy" target="_blank">https://www.facebook.com/policy</a>), sowie Informationen über die von den Nutzern genutzten Geräte (z. B. IP-Adressen, Betriebssystem, Browsertyp, Spracheinstellungen, Cookie-Daten; siehe unter „Geräteinformationen“ in der Facebook-Datenrichtlinie: <a href="https://www.facebook.com/policy" target="_blank">https://www.facebook.com/policy</a>). Wie in der Facebook-Datenrichtlinie unter „Wie verwenden wir diese Informationen?“ erläutert, erhebt und verwendet Facebook Informationen auch, um Analysedienste, so genannte "Seiten-Insights", für Seitenbetreiber bereitzustellen, damit diese Erkenntnisse darüber erhalten, wie Personen mit ihren Seiten und mit den mit ihnen verbundenen Inhalten interagieren. Wir haben mit Facebook eine spezielle Vereinbarung abgeschlossen ("Informationen zu Seiten-Insights", <a href="https://www.facebook.com/legal/terms/page_controller_addendum" target="_blank">https://www.facebook.com/legal/terms/page_controller_addendum</a>), in der insbesondere geregelt wird, welche Sicherheitsmaßnahmen Facebook beachten muss und in der Facebook sich bereit erklärt hat die Betroffenenrechte zu erfüllen (d. h. Nutzer können z. B. Auskünfte oder Löschungsanfragen direkt an Facebook richten). Die Rechte der Nutzer (insbesondere auf Auskunft, Löschung, Widerspruch und Beschwerde bei zuständiger Aufsichtsbehörde), werden durch die Vereinbarungen mit Facebook nicht eingeschränkt. Weitere Hinweise finden sich in den "Informationen zu Seiten-Insights" (<a href="https://www.facebook.com/legal/terms/information_about_page_insights_data" target="_blank">https://www.facebook.com/legal/terms/information_about_page_insights_data</a>); Dienstanbieter: Meta Platforms Ireland Limited, 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland; Rechtsgrundlagen: Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO); Website: <a href="https://www.facebook.com" target="_blank">https://www.facebook.com</a>; Datenschutzerklärung: <a href="https://www.facebook.com/about/privacy" target="_blank">https://www.facebook.com/about/privacy</a>; Data Privacy Framework (DPF): <a href="https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt0000000GnywAAC&status=Active" target="_blank">DPF-Eintrag</a>; Standardvertragsklauseln: <a href="https://www.facebook.com/legal/EU_data_transfer_addendum" target="_blank">https://www.facebook.com/legal/EU_data_transfer_addendum</a>; Weitere Informationen: Vereinbarung gemeinsamer Verantwortlichkeit: <a href="https://www.facebook.com/legal/terms/information_about_page_insights_data" target="_blank">Page Insights Data</a>. Die gemeinsame Verantwortlichkeit beschränkt sich auf die Erhebung durch und Übermittlung von Daten an Meta Platforms Ireland Limited, ein Unternehmen mit Sitz in der EU. Die weitere Verarbeitung der Daten liegt in der alleinigen Verantwortung von Meta Platforms Ireland Limited, was insbesondere die Übermittlung der Daten an die Muttergesellschaft Meta Platforms, Inc. in den USA betrifft (auf der Grundlage der zwischen Meta Platforms Ireland Limited und Meta Platforms, Inc. geschlossenen Standardvertragsklauseln).</li>
+                        <li><strong>YouTube:</strong> Soziales Netzwerk und Videoplattform; Dienstanbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland; Rechtsgrundlagen: Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO); Datenschutzerklärung: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a>; Data Privacy Framework (DPF): <a href="https://www.dataprivacyframework.gov/s/participant-search/participant-detail?id=a2zt000000001L5AAI&status=Active" target="_blank">DPF-Eintrag</a>; Widerspruchsmöglichkeit (Opt-Out): <a href="https://adssettings.google.com/authenticated" target="_blank">https://adssettings.google.com/authenticated</a>.</li>
+                    </ul>
+
+                    <h4>Änderung und Aktualisierung der Datenschutzerklärung</h4>
+                    <p>Wir bitten Sie, sich regelmäßig über den Inhalt unserer Datenschutzerklärung zu informieren. Wir passen die Datenschutzerklärung an, sobald die Änderungen der von uns durchgeführten Datenverarbeitungen dies erforderlich machen. Wir informieren Sie, sobald durch die Änderungen eine Mitwirkungshandlung Ihrerseits (z.B. Einwilligung) oder eine sonstige individuelle Benachrichtigung erforderlich wird.</p>
+                    <p>Sofern wir in dieser Datenschutzerklärung Adressen und Kontaktinformationen von Unternehmen und Organisationen angeben, bitten wir zu beachten, dass die Adressen sich über die Zeit ändern können und bitten die Angaben vor Kontaktaufnahme zu prüfen.</p>
+                    <p><strong>Für uns zuständige Aufsichtsbehörde:</strong><br>
+                    Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz<br>
+                    Postfach 30 40<br>
+                    55020 Mainz</p>
+
+                    <h4>Begriffsdefinitionen</h4>
+                    <p>In diesem Abschnitt erhalten Sie eine Übersicht über die in dieser Datenschutzerklärung verwendeten Begrifflichkeiten. Soweit die Begrifflichkeiten gesetzlich definiert sind, gelten deren gesetzliche Definitionen. Die nachfolgenden Erläuterungen sollen dagegen vor allem dem Verständnis dienen.</p>
+                    <ul>
+                        <li><strong>Personenbezogene Daten:</strong> "Personenbezogene Daten“ sind alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person (im Folgenden "betroffene Person“) beziehen; als identifizierbar wird eine natürliche Person angesehen, die direkt oder indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer, zu Standortdaten, zu einer Online-Kennung (z.B. Cookie) oder zu einem oder mehreren besonderen Merkmalen identifiziert werden kann, die Ausdruck der physischen, physiologischen, genetischen, psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person sind.</li>
+                        <li><strong>Verantwortlicher:</strong> Als "Verantwortlicher“ wird die natürliche oder juristische Person, Behörde, Einrichtung oder andere Stelle, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet, bezeichnet.</li>
+                        <li><strong>Verarbeitung:</strong> "Verarbeitung" ist jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten. Der Begriff reicht weit und umfasst praktisch jeden Umgang mit Daten, sei es das Erheben, das Auswerten, das Speichern, das Übermitteln oder das Löschen.</li>
+                    </ul>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 15px;">Erstellt mit kostenlosem Datenschutz-Generator.de von Dr. Thomas Schwenke</p>
+                </div>
+            </details>
         </section>
     </div>
 
     <footer>
-        <p>&copy; Vereinsname e.V. – Alle Rechte vorbehalten.</p>
+        <p>&copy; TTV Oberwinter e.V. – Alle Rechte vorbehalten.</p>
     </footer>
 
 </body>
