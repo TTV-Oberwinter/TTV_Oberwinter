@@ -310,11 +310,20 @@
             </div>
         </section>
         <!-- Kontaktformular -->
+       <!-- Kontaktformular -->
         <section id="kontakt" class="card">
             <h2>✉️ Nachricht schreiben</h2>
             <p>Habt ihr Fragen oder Interesse an einem Probetraining? Schickt uns direkt eine Nachricht:</p>
             
-            <form action="mailto:ttv.oberwinter@web.de" method="post" enctype="text/plain" style="margin-top: 15px; display: flex; flex-direction: column; gap: 12px;">
+            <!-- Versendet die Mail direkt im Hintergrund -->
+            <form action="https://formsubmit.co/ttv.oberwinter@web.de" method="POST" style="margin-top: 15px; display: flex; flex-direction: column; gap: 12px;">
+                
+                <!-- Verhindert Spam/Bots -->
+                <input type="text" name="_honey" style="display:none">
+                
+                <!-- Verhindert ein Captcha (optional) -->
+                <input type="hidden" name="_captcha" value="false">
+
                 <div>
                     <label for="name" style="font-weight: bold; display: block; margin-bottom: 5px;">Euer Name:</label>
                     <input type="text" id="name" name="Name" required placeholder="Vor- und Nachname" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
@@ -322,7 +331,7 @@
 
                 <div>
                     <label for="email" style="font-weight: bold; display: block; margin-bottom: 5px;">Eure E-Mail-Adresse:</label>
-                    <input type="email" id="email" name="Absender-Email" required placeholder="beispiel@web.de" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                    <input type="email" id="email" name="Email" required placeholder="beispiel@web.de" style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
                 </div>
 
                 <div>
